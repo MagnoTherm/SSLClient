@@ -205,7 +205,7 @@ void SSLClient::flush() {
 void SSLClient::stop() {
     // tell the SSL connection to gracefully close
     // Disabled to prevent close_notify from hanging SSLClient
-    // br_ssl_engine_close(&m_sslctx.eng);
+    br_ssl_engine_close(&m_sslctx.eng);
     // if the engine isn't closed, and the socket is still open
     auto state = br_ssl_engine_current_state(&m_sslctx.eng);
     if (state != BR_SSL_CLOSED
